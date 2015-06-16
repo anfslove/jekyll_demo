@@ -1,2 +1,2 @@
-# jekyll_demo
-jekyll_demo
+# My Blog
+My Blog
