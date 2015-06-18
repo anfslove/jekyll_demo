@@ -6,12 +6,11 @@ category: jekyll
 
 <h2>{{ page.title }}</h2>
 
-<p>Category List</p>
-<pre>
+<textarea>
 {% for cat in site.categories %}
     <h1>{{ cat[0] }}</h1>
 {% endfor %}
-</pre>
+</textarea>
 =================================
 {% for cat in site.categories %}
     <h1>{{ cat[0] }}</h1>
