@@ -6,6 +6,9 @@ body{
 	width: 100%;
 	margin: 0 auto;
 	background: #E1E1E1;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 .header h2{
 	text-align: center;
