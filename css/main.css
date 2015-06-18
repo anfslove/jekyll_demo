@@ -4,6 +4,8 @@
 	border:1px solid #E1E1E1;
 	margin: 0 auto;
 	background: #E1E1E1;
+	position: absolute;
+	bottom: 0;
 }
 .footer p {
 	text-align: center;
