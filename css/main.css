@@ -2,6 +2,15 @@ body{
 	margin: 0;
 }
 
+.header{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	background: #E1E1E1;
+	text-align: center;
+	font-size:16px;
+	font-weight: bolder;
+}
 
 .footer{
 	clear:both;
