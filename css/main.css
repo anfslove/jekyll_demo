@@ -4,10 +4,11 @@ body{
 
 .header{
 	width: 100%;
+	height: auto;
 	margin: 0 auto;
 	background: #E1E1E1;
 }
-.header p {
+.header span {
 	text-align: center;
 	font-size:16px;
 	font-weight: bolder;
