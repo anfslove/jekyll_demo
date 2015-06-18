@@ -6,15 +6,9 @@ category: jekyll
 
 <h2>{{ page.title }}</h2>
 
-<textarea>
-{% for cat in site.categories %}
-    <h1>{{ cat[0] }}</h1>
-{% endfor %}
-</textarea>
 =================================
 {% for cat in site.categories %}
     <h1>{{ cat[0] }}</h1>
 {% endfor %}
-
 
 <p>{{ page.date | date_to_string }}</p>
