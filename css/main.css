@@ -26,3 +26,8 @@ body{
 	text-align: center;
 	font-size:14px;
 }
+
+.container{
+	width: 600px;
+	margin: 0 auto;
+}
