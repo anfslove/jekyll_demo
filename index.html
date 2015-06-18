@@ -12,6 +12,7 @@ category: jquery
 </ul>
 
 <h1 class="category">{{ page.title }}</h1>
+<div>{{ site.categories }}</div>
 <ul class="posts">
 {% for post in site.categories[page.category] %}
     <div>{{ post.date | date_to_html_string }}</div>
