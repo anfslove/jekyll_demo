@@ -1,13 +1,21 @@
 ---
 layout: default
 title: Category List
-category: java
+category: jekyll
 ---
 
 <h2>{{ page.title }}</h2>
 
 <p>Category List</p>
-<div>{{ site.categories }}</div>
+<pre>
+{% for cat in site.categories %}
+    <h1>{{ cat[0] }}</h1>
+{% endfor %}
+</pre>
+=================================
+{% for cat in site.categories %}
+    <h1>{{ cat[0] }}</h1>
+{% endfor %}
 
 
 <p>{{ page.date | date_to_string }}</p>
