@@ -53,3 +53,12 @@ body{
 .list-decimal{
 	list-style: decimal;
 }
+
+.clearfix::before, .clearfix::after {
+    content: " ";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
+.clearfix {}
