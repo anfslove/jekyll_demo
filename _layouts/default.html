@@ -1,5 +1,14 @@
 {% include header.html %}
 <div class="container">
-　　{{ content }}
+	<div class="content">
+		{{ content }}
+	</div>
+　　<div class="category">
+		<ul>
+			{% for cat in site.categories %}
+			    <li>{{ cat[0] }}</li>
+			{% endfor %}
+		</ul>
+	</div>
 </div>
 {% include footer.html %}

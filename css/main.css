@@ -31,3 +31,12 @@ body{
 	width: 600px;
 	margin: 0 auto;
 }
+
+.content{
+	width: 500px;
+	float: left;
+}
+.category{
+	width: 100px;
+	float: right;
+}
