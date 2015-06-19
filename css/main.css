@@ -15,13 +15,13 @@ body{
 }
 
 .footer{
-	width: 100%;
-	margin: 0 auto;
 	background: #E1E1E1;
-	position: absolute;
-	left: 0;
-	bottom: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
 }
+
 .footer p {
 	text-align: center;
 	font-size:14px;
@@ -50,7 +50,4 @@ body{
 }
 .list-decimal{
 	list-style: decimal;
-}
-.clear{
-	clear: both;
 }
