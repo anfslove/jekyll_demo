@@ -3,11 +3,6 @@ body{
 	font-family: 'Gotham_SSm_3r',Helvetica,Arial,sans-serif;
 }
 
-.body-wrapper {
-    min-height: 100%;
-    position: relative;
-}
-
 .header{
 	width: 100%;
 	height: auto;
@@ -35,14 +30,17 @@ body{
 .container{
 	width: 600px;
 	margin: 0 auto;
+	height: auto;
 }
 
 .main{
 	width: 500px;
+	height: auto;
 	float: left;
 }
 .right{
 	width: 100px;
+	height: auto;
 	float: left;
 }
 
