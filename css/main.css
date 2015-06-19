@@ -52,13 +52,17 @@ body{
 
 .posts{
 	list-style: none;
-	margin-bottom: 10px;
+}
+.posts li{
+	margin-bottom: 5px;
 }
 
 .categories{
 	list-style: none;
-	margin-bottom: 10px;
 	font-size: 1.2em;
+}
+.categories{
+	margin-bottom: 5px;
 }
 
 .list-decimal{
