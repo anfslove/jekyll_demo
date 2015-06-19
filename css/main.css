@@ -3,6 +3,11 @@ body{
 	font-family: 'Gotham_SSm_3r',Helvetica,Arial,sans-serif;
 }
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
 .header{
 	width: 100%;
 	height: auto;
@@ -50,15 +55,7 @@ body{
 .categories{
 	list-style: none;
 }
+
 .list-decimal{
 	list-style: decimal;
 }
-
-.clearfix::before, .clearfix::after {
-    content: " ";
-    display: table;
-}
-.clearfix::after {
-    clear: both;
-}
-.clearfix {}
