@@ -1,12 +1,12 @@
 {% include header.html %}
 <div class="container">
-	<div class="content">
+	<div class="main">
 		{{ content }}
 	</div>
-　　<div class="category">
-		<ul>
+　　<div class="left">
+		<ul class="categories">
 			{% for cat in site.categories %}
-			    <li>{{ cat[0] }}</li>
+			    <li><a href="{{ site.baseurl }}/categories/{{ cat[0] }}">{{ cat[0] }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>

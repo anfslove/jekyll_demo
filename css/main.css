@@ -32,11 +32,19 @@ body{
 	margin: 0 auto;
 }
 
-.content{
+.main{
 	width: 500px;
 	float: left;
 }
-.category{
+.left{
 	width: 100px;
 	float: right;
+}
+
+.posts{
+	list-style: none;
+}
+
+.categories{
+	list-style: none;
 }
