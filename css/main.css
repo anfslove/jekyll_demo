@@ -30,7 +30,6 @@ body{
 .container{
 	width: 600px;
 	margin: 0 auto;
-	height: auto;
 }
 
 .main{
@@ -43,14 +42,9 @@ body{
 }
 
 .posts{
-	margin: 0;
-	padding: 0;
 	list-style: none;
 }
 
 .categories{
-	margin: 0;
-	padding: 0;
 	list-style: none;
-	vertical-align: top;
 }
