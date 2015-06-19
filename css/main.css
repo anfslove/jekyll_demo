@@ -49,3 +49,6 @@ body{
 .categories{
 	list-style: none;
 }
+.list-decimal{
+	list-style: decimal;
+}
