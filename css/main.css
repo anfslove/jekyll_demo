@@ -15,7 +15,6 @@ body{
 }
 
 .footer{
-	clear:both;
 	width: 100%;
 	margin: 0 auto;
 	background: #E1E1E1;
@@ -51,4 +50,7 @@ body{
 }
 .list-decimal{
 	list-style: decimal;
+}
+.clear{
+	clear: both;
 }
