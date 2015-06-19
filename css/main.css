@@ -52,11 +52,12 @@ body{
 
 .posts{
 	list-style: none;
+	margin-bottom: 10px;
 }
 
 .categories{
 	list-style: none;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	font-size: 1.2em;
 }
 
