@@ -29,25 +29,27 @@ body{
 
 .container{
 	width: 600px;
-	height: auto;
 	margin: 0 auto;
+	height: auto;
 }
 
 .main{
-	width: 495px;
-	border: 1px solid gray;
+	width: 500px;
 	float: left;
 }
 .left{
-	width: 95px;
-	border: 1px solid gray;
+	width: 100px;
 	float: right;
 }
 
 .posts{
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
 
 .categories{
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
