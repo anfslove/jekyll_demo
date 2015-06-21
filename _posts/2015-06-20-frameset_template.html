@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Frameset Template
-category: HTML
+category: html
 ---
 
 <h2>{{ page.title }}</h2>
 
-<pre>
+{% highlight html %}
 <frameset border="0" framespacing="0" rows="60, *" frameborder="0">
 	<frame name="header" src="header.cfm" frameborder="0" noresize scrolling="no">
 	<frameset cols="170, *">
@@ -14,6 +14,7 @@ category: HTML
 	    <frame name="main" src="main.htm" frameborder="0" noresize scrolling="yes">
 	</frameset>
 </frameset>
+{% endhighlight %}
 <noframes></noframes>
 </pre>
 
