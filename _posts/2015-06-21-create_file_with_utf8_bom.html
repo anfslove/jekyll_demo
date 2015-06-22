@@ -6,8 +6,7 @@ category: coldfusion
 
 <h2>{{ page.title }}</h2>
 
-<h5>Create new file with utf-8 with BOM</h5>
-<pre>
+<textarea class="textarea-code">
 <cffile
 	action="write"
 	file="#newHtmlFile#"
@@ -22,6 +21,7 @@ category: coldfusion
 **  http://www.dgrigg.com/post.cfm/07/21/2006/CFFILE-vs-JavaIOBufferedWriter
 *******************************************************************
 --->
+
 <cfscript>
 	reportFile = createobject("java", "java.io.File").init(newHtmlFile); 			 
 	rptStream = createobject("java", "java.io.FileOutputStream").init(reportFile);
@@ -39,5 +39,6 @@ category: coldfusion
 	rptWriter.close(); 
 	rptStream.close();
 </cfscript>
-</pre>
+</textarea>
+
 <p>{{ page.date | date_to_string }}</p>
