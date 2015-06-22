@@ -68,3 +68,8 @@ body{
 .list-decimal{
 	list-style: decimal;
 }
+
+.textarea-code{
+  width: 100%;
+  height: 80%;
+}

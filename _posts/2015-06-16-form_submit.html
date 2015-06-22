@@ -7,7 +7,7 @@ category: jquery
 <h2>{{ page.title }}</h2>
 
 <p>表单提交时，我们可以这样Return false不让表单提交</p>
-{% highlight js %}
+<pre>
 $("#fileForm").submit(function(event) {
     if($.trim($("#theFile").val()).length){
         return true;
@@ -17,6 +17,6 @@ $("#fileForm").submit(function(event) {
         return false;
     }
 });
-{% endhighlight %}
+</pre>
 
 <p>{{ page.date | date_to_string }}</p>

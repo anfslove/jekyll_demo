@@ -9,17 +9,17 @@ category: sql
 	<li>Connect to the DB server with SSIS</li>
 	<li>Export all data to an excel</li>
 	<li>On local<br>
-		{% highlight sql %}
-			before import data
-			EXEC sp_MSForEachTable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL'
-			EXEC sp_MSForEachTable 'ALTER TABLE ? DISABLE TRIGGER ALL'
-			EXEC sp_MSForEachTable 'DELETE FROM ?'
+<pre>
+before import data
+EXEC sp_MSForEachTable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL'
+EXEC sp_MSForEachTable 'ALTER TABLE ? DISABLE TRIGGER ALL'
+EXEC sp_MSForEachTable 'DELETE FROM ?'
 
-			after import data
-			EXEC sp_MSForEachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL'
-			EXEC sp_MSForEachTable 'ALTER TABLE ? ENABLE TRIGGER ALL'
-			EXEC sp_MSFOREACHTABLE 'SELECT * FROM ?'
-		{% endhighlight %}
+after import data
+EXEC sp_MSForEachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL'
+EXEC sp_MSForEachTable 'ALTER TABLE ? ENABLE TRIGGER ALL'
+EXEC sp_MSFOREACHTABLE 'SELECT * FROM ?'
+</pre>
 	</li>
 	<li>Import data from the excel
 		<img width="450" height="461" src="{{ site.baseurl }}/images/import_data_ssis.jpg">
