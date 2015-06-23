@@ -6,10 +6,38 @@ category: coldfusion
 
 <h2>{{ page.title }}</h2>
 
-{% highlight ruby %}
-def foo  
-  puts 'foo'
-end  
+{% highlight cfm %}
+<cffile
+	action="write"
+	file="#newHtmlFile#"
+	output="#newHtmlBody#"
+/>
+
+<!---
+*******************************************************************
+** 	Using Java Instead of <cffile> to Write to Disk is much faster
+**  http://www.burnette.us/blog/index.cfm/2006/1/30/Using-Java-Instead-of-cffile-to-Write-to-Disk
+**  http://tech.badpen.com/index.cfm?mode=entry&entry=21
+**  http://www.dgrigg.com/post.cfm/07/21/2006/CFFILE-vs-JavaIOBufferedWriter
+*******************************************************************
+--->
+<cfscript>
+	reportFile = createobject("java", "java.io.File").init(newHtmlFile); 			 
+	rptStream = createobject("java", "java.io.FileOutputStream").init(reportFile);
+	// create the UTF-8 file writer and write the file contents  
+	rptWriter = createobject("java", "java.io.OutputStreamWriter");  
+	rptWriter.init(rptStream, "UTF-8");  
+
+	/* To add the BOM at the head of file.*/
+	rptStream.write(239);//0xEF
+	rptStream.write(187);//0xBB
+	rptStream.write(191);//0xBF
+	
+	rptWriter.write(newHtmlBody);
+	rptWriter.flush();   
+	rptWriter.close(); 
+	rptStream.close();
+</cfscript>
 {% endhighlight %}
 
 <p>{{ page.date | date_to_string }}</p>
