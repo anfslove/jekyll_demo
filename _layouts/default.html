@@ -5,6 +5,7 @@
 	</div>
 	<div class="right">
 		<ul class="categories">
+			<li><a href="{{ site.baseurl }}">index</a></li>
 			{% for cat in site.categories %}
 				<li><a href="{{ site.baseurl }}/categories/{{ cat[0] }}">{{ cat[0] }}</a></li>
 			{% endfor %}
