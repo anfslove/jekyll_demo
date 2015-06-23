@@ -6,7 +6,7 @@ category: coldfusion
 
 <h2>{{ page.title }}</h2>
 
-<textarea style="height:700px;" class="textarea-code">
+{% highlight cfm linenos %}
 <cffile
 	action="write"
 	file="#newHtmlFile#"
@@ -39,6 +39,6 @@ category: coldfusion
 	rptWriter.close(); 
 	rptStream.close();
 </cfscript>
-</textarea>
+{% endhighlight %}
 
 <p>{{ page.date | date_to_string }}</p>
