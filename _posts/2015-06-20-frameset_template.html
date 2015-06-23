@@ -6,7 +6,7 @@ category: html
 
 <h2>{{ page.title }}</h2>
 
-<textarea class="textarea-code">
+{% highlight html linenos %}
 <frameset border="0" framespacing="0" rows="60, *" frameborder="0">
 	<frame name="header" src="header.cfm" frameborder="0" noresize scrolling="no">
 	<frameset cols="170, *">
@@ -15,6 +15,6 @@ category: html
 	</frameset>
 </frameset>
 <noframes></noframes>
-</textarea>
+{% endhighlight %}
 
 <p>{{ page.date | date_to_string }}</p>

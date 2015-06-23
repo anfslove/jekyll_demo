@@ -6,10 +6,10 @@ category: coldfusion
 
 <h2>{{ page.title }}</h2>
 
-<textarea class="textarea-code">
+{% highlight cfm linenos %}
 <cfset a="1">
 <cfset b="2">
 <cfoutput>#a GT b ? 1:2#</cfoutput>
-</textarea>
+{% endhighlight %}
 
 <p>{{ page.date | date_to_string }}</p>

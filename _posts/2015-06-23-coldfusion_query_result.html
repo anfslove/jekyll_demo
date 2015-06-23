@@ -1,0 +1,38 @@
+---
+layout: default
+title: highlight
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm linenos %}
+result_name.sql 
+被执行的sql语句。一定存在的变量。
+result_name.recordcount 
+返回多少行记录。一定存在的变量。
+result_name.cached 
+2个值：真和假。如果是真，那就是那个query被缓存了。一定存在的变量。
+result_name.sqlparameters 
+返回cfqueryparam的数组集合。一定存在的变量。
+result_name.columnList 
+返回的字段名在，以逗号分开。一定存在的变量。
+result_name.ExecutionTime 
+执行时间。一定存在的变量。
+result_name.IDENTITYCOL 
+SQL Server 才出现. 插入后返回的新id。
+result_name.ROWID 
+Oracle 才出现. 被插入的行的ID。不是primary key。
+result_name.SYB_IDENTITY 
+Sybase 才出现. 插入后返回的新id。
+result_name.SERIAL_COL 
+Informix 才出现. 插入后返回的新id。
+result_name.GENERATED_KEY 
+MySQL 才出现. 插入后返回的新id。 MySQL 3 不支持
+
+
+SQL Server 2008 R2 can use like this
+<cfset new_id = insert_result.GENERATEDKEY>
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
