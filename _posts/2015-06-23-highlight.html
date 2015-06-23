@@ -1,0 +1,15 @@
+---
+layout: default
+title: highlight
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight ruby %}
+def foo  
+  puts 'foo'
+end  
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
