@@ -59,7 +59,9 @@ body{
 
 .categories{
 	list-style: none;
-	font-size: 1.2em;
+	font-size: 1.3em;
+	font-weight: bolder;
+	padding: 0;
 }
 .categories li{
 	margin-bottom: 5px;
