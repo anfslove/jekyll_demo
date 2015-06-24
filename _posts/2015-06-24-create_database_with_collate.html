@@ -1,0 +1,44 @@
+---
+layout: default
+title: Create database with collate
+category: sql
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight sql %}
+-- Use our own SQL script to setup the database to get better control
+USE master
+ 
+-- Drop the database if it already exists to start on a clean slate
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'DHL_OPS')
+BEGIN
+ALTER DATABASE [DHL_OPS]
+SET OFFLINE
+WITH ROLLBACK IMMEDIATE;
+ 
+ALTER DATABASE [DHL_OPS]
+SET ONLINE;
+ 
+DROP DATABASE [DHL_OPS];
+END
+ 
+-- Create the database
+GO
+CREATE DATABASE DHL_OPS
+ON
+( NAME = DHL_OPS_dat,
+   FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\DHL_OPS.mdf',
+   SIZE = 10MB,
+   FILEGROWTH = 2MB )
+LOG ON
+( NAME = DHL_OPS_log,
+   FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\DHL_OPS.ldf',
+   SIZE = 5MB,
+   MAXSIZE = 100MB,
+   FILEGROWTH = 2MB )
+COLLATE Chinese_PRC_CI_AS
+GO
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
