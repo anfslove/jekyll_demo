@@ -1,0 +1,45 @@
+---
+layout: default
+title: jQuery Selector
+category: jquery
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight js linenos %}
+// input类型为button的元素
+$("input[type='button']")
+
+// 第一个表格的第一行第一列
+$("table:eq(1) tr:last td:last")
+
+// 复选框、单选按钮为选中状态的元素
+$("input[name='selectids'][checked]")
+
+// 可用来判断是否有被选中的复选框或单选按钮
+$("input[name='selectids'][checked]").length==0
+//还可这样
+var gxLegendId=$('input:radio[name="sGxLegendId"]:checked').val();
+
+// 当前元素内第一个img元素
+$(this).find("img").eq(1)
+
+// select 选择框被选中的项的文本
+$(this).find("option:selected").text()
+
+// class 为'tlbBrow'的table
+$("table[class=tblBrow]")
+
+// 所有显示的span元素
+$("span:visible")
+
+// 当前元素的所有为div的兄弟元素
+// is(":visible") 是否为显示元素
+$(this).siblings("div").each(function(){
+    if($(this).is(":visible")){
+        sFlag = "n";
+    }
+});
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
