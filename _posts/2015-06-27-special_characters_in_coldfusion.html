@@ -1,0 +1,23 @@
+---
+layout: default
+title: Special Characters In Coldfusion
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm %}
+<!---空格、制表符、回车的ASCII值--->
+<cfscript>
+    //空格键
+    SPACE = chr(32);
+    //制表符
+    TAB = chr(9);
+    //回车键
+    CR = chr(13);
+    //换行符
+    LF = chr(10);
+</cfscript>
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
