@@ -3,6 +3,10 @@ body{
 	font-family: 'Gotham_SSm_3r',Helvetica,Arial,sans-serif;
 }
 
+pre{
+	word-wrap: break-word; 
+}
+
 .body-wrapper{
 	position:relative;
 	height: auto;
