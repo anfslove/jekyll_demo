@@ -1,0 +1,48 @@
+---
+layout: default
+title: cfquery using cfscript
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfc %}
+/**
+*
+* @file  /E/Projects/QuizJinni_2013/QuizJinni/QuizJinni/sb_components/Ques2Quiz.cfc
+* @author  Pengcheng
+* @description Bulk import question to quiz
+*
+*/
+
+component output="false" displayname=""  {
+
+	public function init(){
+		return this;
+	}
+
+	public any function getQuizAttributes(course_id) {
+		queryObj = new query();
+		queryObj.setDatasource(request.dsn);
+		queryObj.setName("qryQuizAttr");
+		queryObj.setSQL("
+			SELECT  a.sb_course_id, a.sb_course_code, b.sb_ques_type_count_1, b.sb_ques_type_count_2,
+					b.sb_ques_type_count_3, b.sb_ques_type_count_4, b.sb_ques_type_count_5,
+					b.sb_ques_type_score_1, b.sb_ques_type_score_2, b.sb_ques_type_score_3,
+					b.sb_ques_type_score_4, b.sb_ques_type_score_5, b.sb_scoring_type, b.sb_num_questions,
+					b.sb_randomization
+			FROM	sbtbl_course_main a
+				INNER JOIN sbtbl_quiz_attributes_main b
+					ON a.sb_course_id = b.sb_course_id
+					AND a.sb_course_id = :course_id
+		");
+		queryObj.addParam(name="course_id",value="#arguments.course_id#",cfsqltype="cf_sql_integer");
+		queryResult = queryObj.execute();
+		queryObj.clearParams();
+		return queryResult;
+	}
+	
+}
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
