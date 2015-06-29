@@ -1,0 +1,48 @@
+---
+layout: default
+title: cfquery using cfscript
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+<pre>
+I am a very lazy programmer.
+So I usually copy the code snippet to my projects directly.
+</pre>
+{% highlight cfm linenos %}
+<cfsetting showdebugoutput="false" enablecfoutputonly="true">
+<cfscript>
+	result = {};
+	result["success"] = false;
+	result["message"] = "";
+	if(structKeyExists(FORM, "courseId")){
+		try {
+			oQuestion = new admin.quiz.com.Question(APPLICATION.dsn);
+			oQuizManage = new admin.quiz.com.QuizManage();
+			status = oQuestion.setManualQuesScore(
+				courseId=FORM.courseId,
+				quesId=FORM.quesId,
+				quesScore=FORM.quesScore
+			);
+
+			//update quiz score(sbtbl_quiz_attributes_main.sb_quiz_score)
+			oQuizManage.updateQuesScore(course_id=FORM.courseId, ques_type=FORM.quesType);
+			
+			result.success = true;
+			result.message = "Question score has been updated successfully!";
+		} catch (any e) {
+			result.success = false;
+			result.message = e.message & e.detail;
+		}
+		
+		writeOutput(serializeJSON(result));
+		abort;
+	}
+	else{
+		result.message = "Missing the important parameter!";
+	}
+</cfscript>
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
