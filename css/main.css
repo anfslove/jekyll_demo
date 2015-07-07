@@ -73,6 +73,7 @@ pre{
 
 .list-decimal{
 	list-style: decimal;
+	font-size: 1em;
 }
 
 .textarea-code{
