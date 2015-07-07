@@ -1,0 +1,47 @@
+---
+layout: default
+title: jQuery HTML clone
+category: jquery
+---
+
+<h2>{{ page.title }}</h2>
+
+<pre>
+有时候我们会有这样的需求：
+在HTML页面中单击一个按钮，某处表格会增加一行新的内容
+如果使用js直接串HTML，在js代码里就会显得很乱
+那么我们就可以用到jQuery的clone方法了
+</pre>
+<ul class="list-decimal">
+	<li>
+		HTML代码中添加Template
+		{% highlight html linenos %}
+			<!-- Template For Email Addr. -->
+			<script type="application/template" class="template">
+				<tr>
+					<td class="name"></td>
+					<td class="email">
+						<input type="text" class="text email" name="mailTo" value="" readonly="readonly">
+					</td>
+					<td class="checkbox"><img src="/images/wrong.gif"></td>
+				</tr>
+			</script><!-- END Template For Email Addr. -->
+		{% endhighlight %}
+	</li>
+	<li>
+		js中可以这样获取HTML Template，并替换内容追加到现有的HTML后
+		{% highlight js linenos %}
+			var emailItem = $($("script.template").html()).clone();
+			emailItem.attr("id", userId);
+			emailItem.find("td.name").text(userName);
+			emailItem.find("td.email input").val(userEmail);
+			$("#email-selected").append(emailItem);
+
+			$(this).closest("tr").fadeOut(1000, function() {
+				$(this).closest("tr").remove();
+			});
+		{% endhighlight %}
+	</li>
+</ul>
+
+<p>{{ page.date | date_to_string }}</p>
