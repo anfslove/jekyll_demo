@@ -1,0 +1,26 @@
+---
+layout: default
+title: File Download In ColdFusion
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+<ul class="list-decimal">
+	<li>新建Java类，打成jar包</li>
+	<li>把jar包放入Coldfusion安装目录下的lib目录</li>
+	<li>重新启动Coldfusion服务</li>
+	<li>
+		调用示例：
+{% highlight cfm %}
+<cfset p1 = createObject("java","com.test.People")>
+<cfset p1.init()>
+<cfset p1.setName("mon")>
+<cfset p1.setAge(12)>
+<cfset name = p1.name>
+<cfset age = p1.age>
+<cfoutput>#name#----#age#</cfoutput>
+{% endhighlight %}
+注意：com.test.People 包名一定要加上
+	</li>
+</ul>
+<p>{{ page.date | date_to_string }}</p>
