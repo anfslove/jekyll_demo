@@ -1,0 +1,40 @@
+---
+layout: default
+title: How To Create XML In ColdFusion
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm %}
+<!---新建XML--->
+<cfset rootnode=XmlNew()>
+
+<!---新建根节点--->
+<cfset rootnode.xmlRoot = XmlElemNew(rootnode,"XML")>
+
+<!---给新建的根节点加个属性--->
+<cfset rootnode.xmlRoot.XmlAttributes.type = "default">
+<cfset rootnode.xmlRoot.XmlAttributes["type"] = "default">
+
+<!---再加一个新的节点--->
+<cfset sRow = XmlElemNew(rootnode,"ROW")>
+
+<!---给这个新节点加点内容--->
+<cfset sRow.XmlText = "test">
+
+<!---把这个新节点加到根节点上--->
+<cfset rootnode.xmlRoot.XmlChildren[1] = sRow>
+
+<!---我再给这个节点也加个属性怎么样--->
+<cfset rootnode.xmlRoot.XmlChildren[1].XmlAttributes.col0=sCurrValue>
+
+<!---那么我print出来呢--->
+<cfset xmlString = ToString(rootnode)>
+<cfoutput>#xmlString#</cfoutput>
+
+oNode.xmlChildren[1] = xmlElemNew(oXml, "description");
+oNode.description.xmlValue = "<![CDATA[hello world!]]>"; 
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
