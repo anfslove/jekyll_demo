@@ -1,0 +1,34 @@
+---
+layout: default
+title: File Download In ColdFusion
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm %}
+<cfset pathToHtml = GetDirectoryFromPath(GetCurrentTemplatePath()) & APPLICATION.fs & "newsletter">
+<cfdirectory directory="#pathToHtml#" action="list" name="newsletterHtml" sort="name DESC">
+
+<cfset dirName = "/file_mgr/files/">
+<cfset fileName = "file_name.pdf">
+
+<cfoutput>
+	<a href="file_mgr/file_download.cfm?filepath=#dirName#&filename=#fileName#">Download File</a>
+</cfoutput>
+
+<!--- file_download.cfm --->
+<cfsetting enablecfoutputonly="yes" showdebugoutput="false">
+
+<cfset cffm = CreateObject("component","file_mgr.cffm")>
+<cfif StructKeyExists(URL, "filename")>
+ <cfset filename = URL.filename>
+    <cfset workingDirectory = Expandpath(URL.filepath)>
+    <cfset dirSep = cffm.getDirectorySeparator()>
+    <cfheader name="Content-disposition" value="attachment;filename=#filename#">
+    <cfcontent type="#cffm.getMimeType(filename)#" file="#workingDirectory##dirsep##filename#">
+</cfif>
+<cfabort>
+{% endhighlight %}
+You can download the <a href="{{ site.baseurl }}/assets/cffm.zip">cffm.cfc</a> here.
+<p>{{ page.date | date_to_string }}</p>
