@@ -7,7 +7,7 @@ category: jquery
 <h2>{{ page.title }}</h2>
 
 <p>表单提交时，我们可以这样Return false不让表单提交</p>
-{% highlight js linenos %}
+{% highlight js %}
 $("#fileForm").submit(function(event) {
     if($.trim($("#theFile").val()).length){
         return true;
