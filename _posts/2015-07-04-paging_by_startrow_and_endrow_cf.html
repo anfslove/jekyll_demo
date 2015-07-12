@@ -27,13 +27,13 @@ category: coldfusion
  <cfset iPagesCount = iPagesCount + 1>
 </cfif>
 
-<!---开始行
+<!---开始行--->
 <cfparam name="Attributes.iStartRow" default="1" type="numeric">
 <cfset iStartRow = (iCurrPageNo-1) * iPerPageRows + 1>
 <!---结束行--->
 <cfparam name="Attributes.iEndRow" default="10" type="numeric">
 <cfset iEndRow = (iCurrPageNo * iPerPageRows)>
---->
+
 <!---显示页码个数--->
 <cfparam name="Attributes.iPageNoNum" default="6" type="numeric">
 <cfset iPageNoNum = Attributes.iPageNoNum>
