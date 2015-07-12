@@ -1,0 +1,23 @@
+---
+layout: default
+title: Apache Permission To Access
+category: apache
+---
+
+<h2>{{ page.title }}</h2>
+
+I created an instance in Apache.When I go to the web app home page,
+maybe it will say "You don't have permission to access on this server."
+I usually find out the following words in Appache configuration file,to modify same as the words.
+<br>
+httpd-vhosts.conf
+{% highlight xml %}
+NameVirtualHost 115.28.183.202:80
+<VirtualHost 115.28.183.202:80>
+	DocumentRoot C:/Projects/dcxc
+	ServerName 115.28.183.202
+	ServerAlias 115.28.183.202
+</VirtualHost>
+{% endhighlight %}
+*May be there is not a home page in your website root,pls double check.
+<p>{{ page.date | date_to_string }}</p>

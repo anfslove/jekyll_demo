@@ -22,6 +22,10 @@ category: apache
 		127.0.0.1 www.tdeast.cn
 	</li>
 	<li>
+		启用Apache的虚拟主机功能
+		<br>
+		#LoadModule vhost_alias_module modules/mod_vhost_alias.so
+		<br>
 		打开apache的httpd.conf文件,找到
 		<br>
 		#Virtual hosts
@@ -37,38 +41,11 @@ category: apache
 	<li>
 		打开httpd-vhosts.conf文件
 {% highlight xml %}
-<VirtualHost *:80>
-	DocumentRoot "D:/apache/htdocs"
-	ServerName localhost
-	DirectoryIndex index.html index.php
-	<Directory "D:/apache/htdocs">
-		AllowOverride None
-		Options None
-		Order allow,deny
-		Allow from all
-	</Directory>
-</VirtualHost>
-<VirtualHost *:80>
-	DocumentRoot "D:/apache/htdocs/abc"
-	ServerName www.abc.cn
-	DirectoryIndex index.html index.php
-	<Directory "D:/apache/htdocs/abc">
-		AllowOverride None
-		Options None
-		Order allow,deny
-		Allow from all
-	</Directory>
-</VirtualHost>
-<VirtualHost *:80>
-	DocumentRoot "F:/work/tdeast"
-	ServerName www.tdeast.cn
-	DirectoryIndex index.html index.php
-	<Directory "F:/work/tdeast">
-		AllowOverride None
-		Options None
-		Order allow,deny
-		Allow from all
-	</Directory>
+NameVirtualHost 115.28.183.202:80
+<VirtualHost 115.28.183.202:80>
+	DocumentRoot C:/Projects/dcxc
+	ServerName 115.28.183.202
+	ServerAlias 115.28.183.202
 </VirtualHost>
 {% endhighlight %}
 	</li>
