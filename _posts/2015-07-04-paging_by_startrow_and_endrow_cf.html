@@ -6,8 +6,8 @@ category: coldfusion
 
 <h2>{{ page.title }}</h2>
 <ul>
-	<li>
-		PAGING.cfm
+    <li>
+        PAGING.cfm
 {% highlight cfm %}
 <!--- 记录个数(必须的) --->
 <cfif not isDefined("Attributes.iRowsCount")>
@@ -28,7 +28,20 @@ category: coldfusion
 </cfif>
 <!--- 开始行 --->
 {% endhighlight %}
-	</li>
+    </li>
+    <li>
+        Invoke demo
+{% highlight cfm %}
+<cfquery name="rs" datasource="#sSysDsnName#">
+    select * from cbclcrk
+</cfquery>
+<cfif rs.recordCount gt 0>
+    <cfset iRowsCount = rs.recordCount>
+<cfelse>
+    暂无数据
+</cfif>
+{% endhighlight %}
+    </li>
 </ul>
 You can download <a href="{{ site.baseurl }}/assets/PAGING.cfm">PAGING.cfm</a> here.
 <p>{{ page.date | date_to_string }}</p>
