@@ -8,6 +8,14 @@ category: coldfusion
 <ul>
 	<li>
 		PAGING.cfm
+{% highlight cfm %}
+<!---记录个数(必须的)--->
+<cfif not isDefined("Attributes.iRowsCount")>
+ 没有定义记录个数<cfabort>
+<cfelse>
+ <cfset iRowsCount = Attributes.iRowsCount>
+</cfif>
+{% endhighlight %}
 	</li>
 </ul>
 You can download <a href="{{ site.baseurl }}/assets/PAGING.cfm">PAGING.cfm</a> here.
