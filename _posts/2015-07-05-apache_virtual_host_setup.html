@@ -36,41 +36,41 @@ category: apache
 	</li>
 	<li>
 		打开httpd-vhosts.conf文件
-		{% highlight xml %}
-		<VirtualHost *:80>
-			DocumentRoot "D:/apache/htdocs"
-			ServerName localhost
-			DirectoryIndex index.html index.php
-			<Directory "D:/apache/htdocs">
-				AllowOverride None
-				Options None
-				Order allow,deny
-				Allow from all
-			</Directory>
-		</VirtualHost>
-		<VirtualHost *:80>
-			DocumentRoot "D:/apache/htdocs/abc"
-			ServerName www.abc.cn
-			DirectoryIndex index.html index.php
-			<Directory "D:/apache/htdocs/abc">
-				AllowOverride None
-				Options None
-				Order allow,deny
-				Allow from all
-			</Directory>
-		</VirtualHost>
-		<VirtualHost *:80>
-			DocumentRoot "F:/work/tdeast"
-			ServerName www.tdeast.cn
-			DirectoryIndex index.html index.php
-			<Directory "F:/work/tdeast">
-				AllowOverride None
-				Options None
-				Order allow,deny
-				Allow from all
-			</Directory>
-		</VirtualHost>
-		{% endhighlight %}
+{% highlight xml %}
+<VirtualHost *:80>
+	DocumentRoot "D:/apache/htdocs"
+	ServerName localhost
+	DirectoryIndex index.html index.php
+	<Directory "D:/apache/htdocs">
+		AllowOverride None
+		Options None
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
+<VirtualHost *:80>
+	DocumentRoot "D:/apache/htdocs/abc"
+	ServerName www.abc.cn
+	DirectoryIndex index.html index.php
+	<Directory "D:/apache/htdocs/abc">
+		AllowOverride None
+		Options None
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
+<VirtualHost *:80>
+	DocumentRoot "F:/work/tdeast"
+	ServerName www.tdeast.cn
+	DirectoryIndex index.html index.php
+	<Directory "F:/work/tdeast">
+		AllowOverride None
+		Options None
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
+{% endhighlight %}
 	</li>
 </ul>
 
