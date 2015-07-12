@@ -5,5 +5,110 @@ category: coldfusion
 ---
 
 <h2>{{ page.title }}</h2>
-Hello 0712
+<ul>
+	<li>
+		PAGING.cfm
+{% highlight cfm %}
+<!---记录个数(必须的)--->
+<cfif not isDefined("Attributes.iRowsCount")>
+ 没有定义记录个数<cfabort>
+<cfelse>
+ <cfset iRowsCount = Attributes.iRowsCount>
+</cfif>
+<!---当前页码--->
+<cfparam name="Attributes.iCurrPageNo" default="1" type="numeric">
+<cfset iCurrPageNo = Attributes.iCurrPageNo>
+<!---每页显示多少条记录--->
+<cfparam name="Attributes.iPerPageRows" default="10" type="numeric">
+<cfset iPerPageRows = Attributes.iPerPageRows>
+<!---共多少页(页个数)--->
+<cfset iPagesCount =  iRowsCount\iPerPageRows>
+<cfif iRowsCount Mod iPerPageRows gt 0>
+ <cfset iPagesCount = iPagesCount + 1>
+</cfif>
+
+<!---开始行
+<cfparam name="Attributes.iStartRow" default="1" type="numeric">
+<cfset iStartRow = (iCurrPageNo-1) * iPerPageRows + 1>
+<!---结束行--->
+<cfparam name="Attributes.iEndRow" default="10" type="numeric">
+<cfset iEndRow = (iCurrPageNo * iPerPageRows)>
+--->
+<!---显示页码个数--->
+<cfparam name="Attributes.iPageNoNum" default="6" type="numeric">
+<cfset iPageNoNum = Attributes.iPageNoNum>
+
+<cfset iStartPageNo = 1>
+<cfset iEndPageNo = iPageNoNum>
+
+<cfif iPageNoNum Mod 2 gt 0>
+ <cfset iFlag = 0>
+<cfelse>
+ <cfset iFlag = 1>
+</cfif>
+
+<cfif iCurrPageNo gt iPageNoNum\2 and iCurrPageNo le iPagesCount-iPageNoNum\2 + iFlag>
+ <cfset iStartPageNo = iCurrPageNo-iPageNoNum\2>
+ <cfset iEndPageNo = iCurrPageNo+iPageNoNum\2 - iFlag>
+<cfelseif iCurrPageNo gt iPagesCount-iPageNoNum\2 + iFlag>
+ <cfset iStartPageNo = iPagesCount-iPageNoNum + 1>
+ <cfset iEndPageNo = iPagesCount>
+<cfelse>
+ <cfset iStartPageNo = 1>
+ <cfset iEndPageNo = iPageNoNum>
+</cfif>
+
+<cfloop index="i" from="#iStartPageNo#" to="#iEndPageNo#" step="1">
+ <cfoutput><span style="border:1px solid orange; <cfif i eq iCurrPageNo>background:yellow;</cfif> margin-left:10px;"><a href="#CGI.SCRIPT_NAME#?iCurrPageNo=#i#">#i#</a></span></cfoutput>
+</cfloop>
+{% endhighlight %}
+	</li>
+	<li>
+		Invoke demo
+{% highlight cfm %}
+<cfquery name="rs" datasource="#sSysDsnName#">
+ select * from cbclcrk
+</cfquery>
+<cfif rs.recordCount gt 0>
+ <cfset iRowsCount = rs.recordCount>
+<cfelse>
+ 暂无数据
+</cfif>
+
+<cfparam name="iCurrPageNo" default="1" type="numeric">
+<cfparam name="iPerPageRows" default="10" type="numeric">
+<cfparam name="iStartRow" default="1" type="numeric">
+<cfparam name="iEndRow" default="#iPerPageRows#" type="numeric">
+
+<cfif isDefined("URL.iCurrPageNo")>
+ <cfset iCurrPageNo = URL.iCurrPageNo>
+</cfif>
+<cfset iStartRow = (iCurrPageNo-1) * iPerPageRows + 1>
+<cfset iEndRow = (iCurrPageNo * iPerPageRows)>
+
+<cfoutput>
+ <table>
+     <tr>
+         <td>单号</td>
+            <td>供应商代码</td>
+            <td>供应商名称</td>
+        </tr>
+        <cfloop query="rs" startrow="#iStartRow#" endrow="#iEndRow#">
+     <tr>
+             <td>&nbsp;#rs.eno#</td>
+                <td>&nbsp;#rs.uno#</td>
+                <td>&nbsp;#rs.unit#</td>
+            </tr>
+     </cfloop>
+    </table>
+    <CF_PAGING
+     iCurrPageNo="#iCurrPageNo#" 
+     iRowsCount="#iRowsCount#"
+        iPerPageRows="#iPerPageRows#"
+        iPageNoNum="6">
+</cfoutput>
+{% endhighlight %}
+	</li>
+</ul>
+You can download <a href="{{ site.baseurl }}/assets/PAGING.cfm">PAGING.cfm</a> here.
 <p>{{ page.date | date_to_string }}</p>
