@@ -1,4 +1,2 @@
 baseurl: /my_blog
 pygments: true
-paginate: 10
-paginate_path: "my_blog/page:num"
