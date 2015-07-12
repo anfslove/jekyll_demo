@@ -9,24 +9,25 @@ category: coldfusion
 	<li>
 		PAGING.cfm
 {% highlight cfm %}
-<!---记录个数(必须的)--->
+<!--- 记录个数(必须的) --->
 <cfif not isDefined("Attributes.iRowsCount")>
- 没有定义记录个数<cfabort>
+    没有定义记录个数<cfabort>
 <cfelse>
- <cfset iRowsCount = Attributes.iRowsCount>
+    <cfset iRowsCount = Attributes.iRowsCount>
 </cfif>
-<!---当前页码--->
+<!--- 当前页码 --->
 <cfparam name="Attributes.iCurrPageNo" default="1" type="numeric">
 <cfset iCurrPageNo = Attributes.iCurrPageNo>
-<!---每页显示多少条记录--->
+<!--- 每页显示多少条记录 --->
 <cfparam name="Attributes.iPerPageRows" default="10" type="numeric">
 <cfset iPerPageRows = Attributes.iPerPageRows>
-<!---共多少页(页个数)--->
+<!--- 共多少页(页个数) --->
 <cfset iPagesCount =  iRowsCount\iPerPageRows>
 <cfif iRowsCount Mod iPerPageRows gt 0>
- <cfset iPagesCount = iPagesCount + 1>
+    <cfset iPagesCount = iPagesCount + 1>
 </cfif>
-<!---开始行--->
+<!--- 开始行 --->
+{% endhighlight %}
 	</li>
 </ul>
 You can download <a href="{{ site.baseurl }}/assets/PAGING.cfm">PAGING.cfm</a> here.
