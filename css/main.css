@@ -48,6 +48,9 @@ pre{
 	float: left;
 	padding-bottom:50px;
 }
+.pagination{
+	margin: 0 auto;
+}
 .right{
 	width: 100px;
 	height: auto;
