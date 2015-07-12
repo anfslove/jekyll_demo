@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Paging By start row and end row In ColdFusion
+title: Paging By start row And end row In ColdFusion
 category: coldfusion
 ---
 
@@ -16,6 +16,7 @@ category: coldfusion
 <cfelse>
 	<cfset iRowsCount = Attributes.iRowsCount>
 </cfif>
+
 <!--- 当前页码 --->
 <cfparam name="Attributes.iCurrPageNo" default="1" type="numeric">
 <cfset iCurrPageNo = Attributes.iCurrPageNo>
@@ -27,6 +28,7 @@ category: coldfusion
 <cfif iRowsCount Mod iPerPageRows gt 0>
 	<cfset iPagesCount = iPagesCount + 1>
 </cfif>
+
 <!--- 开始行 --->
 <cfparam name="Attributes.iStartRow" default="1" type="numeric">
 <cfset iStartRow = (iCurrPageNo-1) * iPerPageRows + 1>
