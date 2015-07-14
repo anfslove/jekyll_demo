@@ -1,0 +1,27 @@
+---
+layout: default
+title: ColdFusion 标准版 启用JDBC
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+<ul class="list-decimal">
+	<li>在数据库服务器{oracle-root}\ora9x\jdbc\lib 找到ojdbc14.jar 文件</li>
+	<li>将ojdbc14.jar拷贝到{cfmx-root}/runtime/servers/lib</li>
+	<li>重新启动ColdFusion服务</li>
+	<li>登录CFIDE,进入Data Sources配置页</li>
+	<li>
+		增加数据源，类型other,配置要点如下：
+		<ul>
+			<li>Class: oracle.jdbc.driver.OracleDriver </li>
+			<li>URL: jdbc:oracle:thin:@server name or ip:1521:sid</li>
+		</ul>		 
+	</li>
+</ul>
+
+* 存储过程使用注意：
+<br>
+对于Reference Cursor type类型返回值，只能使用cfprocresult tag。
+
+<p>{{ page.date | date_to_string }}</p>
