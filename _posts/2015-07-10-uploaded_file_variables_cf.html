@@ -14,7 +14,7 @@ category: coldfusion
 {% endhighlight %}
 
 <p>
-	Which are the variables we can use when a file is uploaded to server
+	Which are the variables we can use when a file is uploaded to server?
 </p>
 <pre>
 AttemptedServerFile 最初用来储存上传文档的名称,和客户端名称相同.
@@ -54,6 +54,7 @@ TimeLastModified 上传文件最后一次被修改的时间
 	<cffile action="write" file="#sLogFile#" output="">
 </cfif>
 <cffile action="append" file="#sLogFile#" output="#sLogContents#">
+<br><br>
 {% endhighlight %}
 
 <p>{{ page.date | date_to_string }}</p>
