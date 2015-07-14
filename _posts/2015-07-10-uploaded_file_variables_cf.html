@@ -54,7 +54,8 @@ TimeLastModified 上传文件最后一次被修改的时间
 	<cffile action="write" file="#sLogFile#" output="">
 </cfif>
 <cffile action="append" file="#sLogFile#" output="#sLogContents#">
-<br><br>
+
+
 {% endhighlight %}
 
 <p>{{ page.date | date_to_string }}</p>
