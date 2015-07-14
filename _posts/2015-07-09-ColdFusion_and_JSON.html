@@ -1,0 +1,41 @@
+---
+layout: default
+title: ColdFusion And JSON
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm %}
+<cfset str = '{"name":"lucy","sex":"女"}'>
+<cfif isJSON(str)>
+	Y
+<cfelse>
+	N
+</cfif>
+<!--- 转换成CF struts --->
+<cfset cfData = deserializeJSON(str)>
+<cfdump var="#cfData#">
+
+<!--- 将查询序列化成JSON格式数据 --->
+<cfquery name="rs" datasource="thomson">
+	SELECT *
+	FROM adminuser
+</cfquery>
+<cfset theJSON = serializeJSON(rs)>
+<cfif isJSON(theJSON)>
+	<cfoutput>#theJSON#</cfoutput> 
+</cfif>
+
+<!--- 将Struct序列化成JSON格式数据 --->
+<cfset result = structNew()>
+<cfset result["success"] = true>
+<cfset result["message"] = "更新成功！">
+<cfset theJSON = serializeJSON(result)>
+<cfif isJSON(theJSON)>
+	<cfoutput>#theJSON#</cfoutput> 
+</cfif>
+
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
