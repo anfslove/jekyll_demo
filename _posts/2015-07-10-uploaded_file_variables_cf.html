@@ -1,0 +1,59 @@
+---
+layout: default
+title: Uploaded File Variables
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm %}
+<cffile action = "upload" 
+		fileField = "sFileName" 
+		destination = "#sFilePath#" 
+		nameConflict = "OVERWRITE">
+{% endhighlight %}
+
+<p>
+	Which are the variables we can use when a file is uploaded to server
+</p>
+<pre>
+AttemptedServerFile 最初用来储存上传文档的名称,和客户端名称相同.
+ClientDirectory 原文件在客户端的路径
+ClientFile 原文件在客户端的文件名
+ClientFileExt 原文件的后缀
+ClientFileName 原文件的主文件名,不含后缀
+ContentSubType 上传文件的MIME内容子类型
+ContentType 上传文件的MIME内容类型
+DateLastAccessed 上次访问上传文件的时间
+FileExisted 判断是否有同名文件.布尔变量.
+FileSize文件大小
+FileWasAppended 布尔值,指出是否将上传文件附加到已存在的文件中.
+FileWasOverWritten 布尔值,指出文件是否被覆盖
+FileWasRenamed 布尔值,指出文件是否被自动重命名
+FileWasSaved 布尔值,指出是否正常储存了文件.
+OldFileSize 被覆盖文件的大小
+ServerDirectory 服务器端上传文件目录
+ServerFile 实际存储到服务器端的文件名
+ServerFileExt / ServerFileName
+TimeCreated 建立上传文件的时间
+TimeLastModified 上传文件最后一次被修改的时间
+</pre>
+
+<hr>
+
+{% highlight cfm %}
+<cfset  sFileName  = ExpandPath("test.csv")>
+<cffile action="read"
+	file="#sFileName#" 
+	variable="sContents">
+<cfset iLen = ListLen( sContents ,Chr(13))>
+
+<!--- Generate Log File --->
+<cfset sLogContents =  sLogContents & "更新结束于：[#Dateformat(now(),'yyyy-mm-dd HH:mm:ss')#]" & chr(13) & chr(10)>
+<cfif not FileExists(sLogFile)>
+	<cffile action="write" file="#sLogFile#" output="">
+</cfif>
+<cffile action="append" file="#sLogFile#" output="#sLogContents#">
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
