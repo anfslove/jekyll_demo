@@ -1,0 +1,81 @@
+---
+layout: default
+title: Git Export Commits
+category: git
+---
+
+<h2>{{ page.title }}</h2>
+
+<pre>
+** Using Git Log to Show Last Month's Commits
+git log --before={2013-04-01} --after={2013-03-01}
+
+In the terminal, press Enter to scroll through the git log output.
+Type q to quite 
+
+** Show all changed files between two Git commits
+git diff --name-only HEAD~10 HEAD~5
+git diff --name-only SHA1 SHA2
+
+3 commit 6e38d0e HEAD~1
+2 commit bacbff8
+1 commit dd18b84
+
+** Command to export the changed files from local git repo HEAD
+$ cp -pv --parents `git diff --name-only HEAD~10 HEAD~5` /e/updates
+
+$ cp -pv --parents `git diff --name-only HEAD~1` /e/updates               [latest commit]
+$ cp -pv --parents `git diff --name-only HEAD~2` /e/updates               [latest 2 commits]
+$ cp -pv --parents `git diff --name-only HEAD~2 HEAD~3` /e/updates        [the third commit]
+$ cp -pv --parents `git diff --name-only HEAD~1 HEAD~2` /e/updates        [the second commit]
+
+$ cp -pv --parents `git diff --name-only dd18b84` /e/updates              [all of the dd18b84 children commits]
+$ cp -pv --parents `git diff --name-only 6e38d0e bacbff8` /e/updates      [commit 6e38d0e]
+$ cp -pv --parents `git diff --name-only bacbff8 dd18b84` /e/updates      [commit bacbff8]
+$ cp -pv --parents `git diff --name-only 6e38d0e dd18b84` /e/updates      [commit bacbff8 & 6e38d0e]
+
+the deleted file can not export,but the deleted folder will rebuild,it is empty.
+
+Key
+
+  -a, --archive                same as -dpR
+
+  -b, --backup                 make backup before removal
+
+  -d, --no-dereference         preserve links
+
+  -f, --force                  remove existing destinations, never prompt
+
+  -i, --interactive            prompt before overwrite
+
+  -l, --link                   link files instead of copying
+
+  -p, --preserve               preserve file attributes if possible
+
+  -P, --parents                append source path to DIRECTORY
+
+  -r                           copy recursively, non-directories as files
+
+      --sparse=WHEN            control creation of sparse files
+
+  -R, --recursive              copy directories recursively
+
+  -s, --symbolic-link          make symbolic links instead of copying
+
+  -S, --suffix=SUFFIX          override the usual backup suffix
+
+  -u, --update                 copy only when the SOURCE file is newer
+                                 than the destination file or when the
+                                 destination file is missing
+
+  -v, --verbose                explain what is being done
+
+  -V, --version-control=WORD   override the usual version control
+
+  -x, --one-file-system        stay on this file system
+      --help                   display this help and exit
+      --version                output version information and exit.
+
+</pre>
+
+<p>{{ page.date | date_to_string }}</p>
