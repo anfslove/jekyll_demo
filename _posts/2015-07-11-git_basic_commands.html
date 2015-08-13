@@ -1,0 +1,43 @@
+---
+layout: default
+title: Git Basic Commands
+category: git
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight text %}
+Set username & password
+    
+$ pwd
+    We can use this command to display the current directory name.
+
+$ git pull
+    Update the changes from Remote to Local.
+
+$ git clone https://github.com/greedyalien/DHL_OPS_2014.git /c/Users/admintec/Projects/DHL_OPS_2014_BAK
+$ git clone git@github.com:anfslove/ColdFusion.git /c/Users/admintec/Projects/ColdFusion_BAK
+    Clone all of the files from Git Server
+
+$ git config -l
+    To show all global settings
+
+$ git remote -v
+    origin https://github.com/greedyalien/DHL_OPS_2014.git (fetch)
+    origin https://github.com/greedyalien/DHL_OPS_2014.git (push)
+
+$ git branch
+    * master
+
+$ git branch -r
+    origin/HEAD -> origin/master
+    origin/master
+
+$ git branch -a
+    * master
+    remotes/origin/HEAD -> origin/master
+    remotes/origin/master
+
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
