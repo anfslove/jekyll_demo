@@ -1,0 +1,21 @@
+---
+layout: default
+title: Set the Git projects default directory for windows 7
+category: git
+---
+
+<h2>{{ page.title }}</h2>
+
+<pre>
+Step 1
+     Go to GitHub home folder,it seem like this "C:\Users\username\AppData\Local\GitHub".
+Step 2
+    Search the keywords "profile",we can find out the profile file of Git Bash,then open it.
+Step 3
+    Put
+         ProjectsDirectory="C:\Users\username\Projects"
+         cd $ProjectsDirectory
+    in the end of the profile file,then restart Git Bash again.
+</pre>
+
+<p>{{ page.date | date_to_string }}</p>
