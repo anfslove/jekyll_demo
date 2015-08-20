@@ -1,0 +1,76 @@
+---
+layout: default
+title: Generate Excel Report With cfheader AND cfcontent
+category: coldfusion
+---
+
+<h2>{{ page.title }}</h2>
+
+{% highlight cfm %}
+<cfsetting enablecfoutputonly="true" showdebugoutput="false">
+
+<!--- Step 1.Query data. --->
+<cfquery name="qryDATA" datasource="#request.dsn#">
+	SELECT id, name, gender
+	FROM xtbl
+</cfquery>
+
+<!--- Step 2.Store the report output. --->
+<cfsavecontent variable="rptOutput">
+	<cfoutput>
+		<table border="1">
+			<tr>
+				<td colspan="3"><strong>报表名称：员工信息类报表</strong></td>
+			</tr>
+			<tr>
+				<td colspan="3"><strong>生成日期：#DateFormat(Now(),"yyyy-mm-dd")# #TimeFormat(Now(),"HH:mm:ss")#</strong></td>
+			</tr>
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+			</tr>
+			<cfif qryDATA.recordCount>
+				<cfloop query="qryDATA">
+					<tr>
+						<td>
+							<cfif len(id)>
+								#id#
+							<cfelse>
+								&nbsp;
+							</cfif>
+						</td>
+						<td>
+							<cfif len(name)>
+								#name#
+							<cfelse>
+								&nbsp;
+							</cfif>
+						</td>
+						<td>
+							<cfif len(gender)>
+								#gender#
+							<cfelse>
+								&nbsp;
+							</cfif>
+						</td>
+					</tr>
+				</cfloop>
+			<cfelse>
+				<tr>
+					<td colspan="3">没有数据在您输出的报表中</td>
+				</tr>
+			</cfif>
+		</table>
+	</cfoutput>
+</cfsavecontent>
+
+<!--- Step 3.Set the header info to force that file attachment. --->
+<cfheader name="Content-Disposition" value="attachment; filename=userinfo.xls">
+
+<!--- Step 4.Stream the text. To do so, we have to convert it to Base64 first, then convert that to binary. --->
+<cfcontent type="application/vnd.ms-excel; charset=utf-8" reset="true" variable="#ToBinary(ToBase64(rptOutput,'utf-8'))#">
+
+{% endhighlight %}
+
+<p>{{ page.date | date_to_string }}</p>
