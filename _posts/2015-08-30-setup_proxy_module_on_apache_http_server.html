@@ -1,0 +1,43 @@
+---
+layout: default
+title: Setup proxy module on Apache http server
+category: apache
+---
+
+<h2>{{ page.title }}</h2>
+
+<pre>
+I have a Tomcat running and working fine,it running on 8080 port,I can access to this one just typing:
+
+http://localhost:8080
+
+Also,in this host,I have an Apache Web Server,running on 80 port.
+What I want to do is that through Apache can access to the projects running on Tomcat.
+
+So,I wanted to reverse proxy a web service from my Tomcat server using Apache web server.
+I have modified httpd.conf like below,there are two modules needs to be load.
+
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+Make sure to enable both modules proxy and proxy_http.
+
+Then I have modified httpd-vhosts.conf like below.
+
+NameVirtualHost 182.92.72.139:80
+<VirtualHost 182.92.72.139:80>
+	ServerName www.webtribe.com.cn
+	ProxyRequests Off
+	<Proxy *>
+		Order deny,allow
+		Allow from all
+	</Proxy>
+	ProxyPass / http://www.webtribe.com.cn:8080/
+	ProxyPassReverse / http://www.webtribe.com.cn:8080/
+</VirtualHost>
+
+After that,I restarted Tomcat and Apache server,it works normally!
+
+</pre>
+
+<p>{{ page.date | date_to_string }}</p>

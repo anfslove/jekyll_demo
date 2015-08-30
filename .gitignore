@@ -1,0 +1,20 @@
+# Build and Release Folders
+# bin/
+
+# Other files and folders
+# .settings/
+
+
+
+# Sublime Text Project files
+*.sublime-project
+*.sublime-workspace
+
+*.zip
+*.rar
+
+*.DS_Store
+
+#################
+## Test
+#################
