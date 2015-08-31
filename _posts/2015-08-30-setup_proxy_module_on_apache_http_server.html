@@ -9,7 +9,9 @@ category: apache
 <pre>
 I have a Tomcat running and working fine,it running on 8080 port,I can access to this one just typing:
 
+{% highlight text %}
 http://localhost:8080
+{% endhighlight %}
 
 Also,in this host,I have an Apache Web Server,running on 80 port.
 What I want to do is that through Apache can access to the projects running on Tomcat.
@@ -17,8 +19,10 @@ What I want to do is that through Apache can access to the projects running on T
 So,I wanted to reverse proxy a web service from my Tomcat server using Apache web server.
 I have modified httpd.conf like below,there are two modules needs to be load.
 
+{% highlight text %}
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
+{% endhighlight %}
 
 Make sure to enable both modules proxy and proxy_http.
 
