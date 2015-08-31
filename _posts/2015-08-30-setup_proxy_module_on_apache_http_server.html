@@ -8,26 +8,21 @@ category: apache
 
 <pre>
 I have a Tomcat running and working fine,it running on 8080 port,I can access to this one just typing:
-
 {% highlight text %}
 http://localhost:8080
 {% endhighlight %}
-
 Also,in this host,I have an Apache Web Server,running on 80 port.
 What I want to do is that through Apache can access to the projects running on Tomcat.
 
 So,I wanted to reverse proxy a web service from my Tomcat server using Apache web server.
 I have modified httpd.conf like below,there are two modules needs to be load.
-
 {% highlight text %}
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
 {% endhighlight %}
-
 Make sure to enable both modules proxy and proxy_http.
 
 Then I have modified httpd-vhosts.conf like below.
-
 {% highlight xml %}
 NameVirtualHost 182.92.72.139:80
 <VirtualHost 182.92.72.139:80>
@@ -41,7 +36,6 @@ NameVirtualHost 182.92.72.139:80
 	ProxyPassReverse / http://www.webtribe.com.cn:8080/
 </VirtualHost>
 {% endhighlight %}
-
 After that,I restarted Tomcat and Apache server,it works normally!
 
 </pre>
