@@ -24,6 +24,7 @@ Make sure to enable both modules proxy and proxy_http.
 
 Then I have modified httpd-vhosts.conf like below.
 
+{% highlight xml %}
 NameVirtualHost 182.92.72.139:80
 <VirtualHost 182.92.72.139:80>
 	ServerName www.webtribe.com.cn
@@ -35,6 +36,7 @@ NameVirtualHost 182.92.72.139:80
 	ProxyPass / http://www.webtribe.com.cn:8080/
 	ProxyPassReverse / http://www.webtribe.com.cn:8080/
 </VirtualHost>
+{% endhighlight %}
 
 After that,I restarted Tomcat and Apache server,it works normally!
 
